@@ -3,8 +3,6 @@ import { ContactList } from './ContactList/Contactlist';
 import { Filter } from "./Filter/Filter";
 
 export const App = () => {
-
-  
   return (
         <div
           style={{
