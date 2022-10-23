@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const defaultPhonebook = [
   // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -25,5 +27,15 @@ export const userSlice = createSlice({
           },
     } 
 });
+
+const persistConfig = {
+  key: "root",
+  storage
+};
+
+export const contactsReducer = persistReducer(
+  persistConfig,
+  userSlice.reducer,
+);
 
 export const { addContact, deleteContact, filterContacts } = userSlice.actions;
