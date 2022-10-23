@@ -4,12 +4,14 @@ import { useSelector } from "react-redux";
   
 export const ContactList = () => {
 
-  const data = useSelector(state => state.addContact.items)
+  const data = useSelector(state => state.addContact.items);
+  const filterContacts = useSelector(state => state.addContact.filter);
+  const filteredList = data.filter(contact => contact.name.toLowerCase().includes(filterContacts.toLowerCase()));
 
   return (
     <ul className={css.contactList}>
-        {data.length !== 0 ? (
-          data.map(dataItem => {
+        {filteredList.length !== 0 ? (
+          filteredList.map(dataItem => {
           return (
           <ContactItem
               key={dataItem.id}
