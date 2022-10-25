@@ -5,7 +5,7 @@ import { filterContacts } from 'redux/userSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(state => state.addContact.filter);
     return (
       <div className={css.SearchBox}>
             <span className={css.SearchBox_label}>Find contacts by name</span>
